@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %} {% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        div.fixed {
+            position: fixed;
+            top: 40px;
+            left: 0px;
+        }
+        body, html {
+            height: 100%;
+            margin: 0;
+          }
+        .responsive {
+            width: 100%;
+            height: 120%;
+          }
+        </style>
+
+
+
+    {% block head %} 
+    {% endblock %}
+</head>
+<body>
+    {% block img %}
+    {% endblock %}
+
+
+
+<!-- Sidebar -->
+<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+    <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+    <a href="/home" class="w3-bar-item w3-button">Home</a>
+    <a href="/add_games" class="w3-bar-item w3-button">Add new game</a>
+    <a href="/owned_table" class="w3-bar-item w3-button">Owned games</a>
+    <a href="/wishlist_table" class="w3-bar-item w3-button">Wishlist</a>
+    <a href="/playing_table" class="w3-bar-item w3-button">Currently playing</a>
+    <a href="/completed_table" class="w3-bar-item w3-button">Games completed</a>
+  </div>
+  
+  <!-- Page Content -->
+  <div class="w3-grey">
+    <button class="w3-button w3-grey  w3-xlarge" onclick="w3_open()">☰</button>
+    <div class="w3-container">
+    {% block bar %}
+        <h1>base</h1>
+    {% endblock %}
+    </div>
+  </div>
+  
+  
+  
+  
+  <script>
+  function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+  }
+  
+  function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+  }
+  </script>
+        
+  {% block content %}{% endblock %}   
+</body>
+</html>
